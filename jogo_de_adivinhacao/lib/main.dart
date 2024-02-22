@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() {
-  runApp(CalculadoraApp());
+  runApp(SorteioApp());
 }
 
-class CalculadoraApp extends StatelessWidget {
+class SorteioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Calculadora(),
+      home: Sorteio(),
     );
   }
 }
 
-class Calculadora extends StatefulWidget {
+class Sorteio extends StatefulWidget {
   @override
-  _CalculadoraState createState() => _CalculadoraState();
+  _SorteioState createState() => _SorteioState();
 }
 
-class _CalculadoraState extends State<Calculadora> {
+class _SorteioState extends State<Sorteio> {
   TextEditingController _controllerNumero1 = TextEditingController();
   String _resultado = '';
   int _cont = 0;
@@ -29,7 +29,7 @@ class _CalculadoraState extends State<Calculadora> {
   void _verificar(String acao) {
     int numero1 = int.parse(_controllerNumero1.text);
 
-    _randomNumber = _cont == 0 ? random.nextInt(100) : _randomNumber;
+    _randomNumber = _cont == 0 ? random.nextInt(101) : _randomNumber;
 
     setState(() {
       if (acao == "Verify") {
@@ -37,7 +37,7 @@ class _CalculadoraState extends State<Calculadora> {
           _resultado =
               'Você acertou o número! Você acertou com $_cont tentativas';
           _cont = 0;
-          _randomNumber = random.nextInt(100);
+          _randomNumber = random.nextInt(101);
         } else if (numero1 > _randomNumber) {
           _resultado = 'O número digitado está acima do número pensado';
           _cont++;
@@ -55,7 +55,7 @@ class _CalculadoraState extends State<Calculadora> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculadora Flutter'),
+        title: Text('Sorteio Flutter'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

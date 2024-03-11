@@ -2,13 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'ExercicioLista2.dart';
 
 void main() {
   runApp(ExerciciosLista());
 }
 
 class ExerciciosLista extends StatelessWidget {
-  const ExerciciosLista({super.key});
+  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,10 @@ class ExerciciosLista extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ExerciciosLista2()));
                 },
               )
             ],
@@ -74,7 +80,7 @@ class ExerciciosLista extends StatelessWidget {
                       margin: EdgeInsets.all(15),
                       width: 100,
                       height: 50,
-                      color: Color.fromRGBO(47, 0, 255, 1),
+                      color: Color.fromRGBO(47, 9, 219, 0.868),
                       child: Text("Counteúdo 1",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 1))),
@@ -171,10 +177,61 @@ class ExerciciosLista extends StatelessWidget {
                 ],
               ),
               // ---------------------------------------------------------------------------------------------------------------------------------------
-              // Exercício 4:
-
-              // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 5:
+              Container(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: _controller,
+                          decoration: InputDecoration(
+                            labelText: 'Digite o Seu Nome',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: _controller1,
+                          decoration: InputDecoration(
+                            labelText: 'Digite o Seu Email',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: _controller2,
+                          decoration: InputDecoration(
+                            labelText: 'Envie uma Mensagem',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextButton(
+                            style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.blue),
+                            ),
+                            onPressed: () {
+                              if (_controller.text.isNotEmpty &&
+                                  _controller1.text.isNotEmpty &&
+                                  _controller2.text.isNotEmpty) {
+                                _controller.clear();
+                                _controller1.clear();
+                                _controller2.clear();
+                              } else {
+
+                              }
+                            },
+                            child: Text('Enviar'),
+                          )),
+                    ]),
+              ),
+
               // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 6:
               // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -182,7 +239,7 @@ class ExerciciosLista extends StatelessWidget {
               // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 8:
               // ---------------------------------------------------------------------------------------------------------------------------------------
-              // Exercício 9:
+              // Exercício 10:
             ],
           ),
         ),
@@ -190,3 +247,4 @@ class ExerciciosLista extends StatelessWidget {
     );
   }
 }
+

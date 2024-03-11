@@ -10,7 +10,7 @@ class ListarTarefasApp extends StatelessWidget {
     return MaterialApp(
       // Definindo a tela inicial como a ListaTarefasScreen 
       home: ChangeNotifierProvider(
-        create: (context) => ListaTarefasControler(),
+        create: (context) => ListaTarefasControler(context),
         child: ListaTarefasScreen(),
       )
     );

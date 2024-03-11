@@ -24,7 +24,11 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.exemplo_interface"
+<<<<<<< HEAD
     compileSdk flutter.compileSdkVersion
+=======
+    compileSdkVersion flutter.compileSdkVersion
+>>>>>>> 0275c116db7208167982e49df9334b56a66f5485
     ndkVersion flutter.ndkVersion
 
     compileOptions {

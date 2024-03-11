@@ -30,6 +30,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+<<<<<<< HEAD
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
@@ -41,4 +42,6 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+=======
+>>>>>>> 0275c116db7208167982e49df9334b56a66f5485
 </manifest>

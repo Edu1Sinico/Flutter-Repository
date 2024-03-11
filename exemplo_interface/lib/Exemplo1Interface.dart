@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Função principal que inicializa a aplicação Flutter
-void main() {
+// void main() {
 // Inicia a execução da aplicação com o widget MyApp
-  runApp(MyApp());
-}
+//   runApp(MyApp());
+// }
 
 // Definindo a classe MyApp que herda de StatelessWidget
 class MyApp extends StatelessWidget {

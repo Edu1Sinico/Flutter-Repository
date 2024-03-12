@@ -1,14 +1,16 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'ExercicioLista2.dart';
 
 void main() {
-  runApp(ExerciciosLista());
+  runApp(ExercicioLista());
 }
 
-class ExerciciosLista extends StatelessWidget {
+class ExercicioLista extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
   final TextEditingController _controller2 = TextEditingController();
@@ -18,8 +20,25 @@ class ExerciciosLista extends StatelessWidget {
     return MaterialApp(
       // Exercício 8: Layout com Abas (TabBar)
       home: DefaultTabController(
-        length: 8, // Define o tamanho do Layout
+        length: 6, // Define o tamanho do Layout
         child: Scaffold(
+          drawer: Drawer(
+            child: ListView(
+              children: [
+                ListTile(
+                  title: Text('Lista de Exercícios 2'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ExercicioLista2()));
+// Ação ao tocar na opção do Drawer
+                  },
+                ),
+// Outras opções de navegação...
+              ],
+            ),
+          ),
           appBar: AppBar(
             bottom: TabBar(
               // Adiciona os elementos no TabBar
@@ -42,12 +61,6 @@ class ExerciciosLista extends StatelessWidget {
                 Tab(
                   text: "6",
                 ),
-                Tab(
-                  text: "7",
-                ),
-                Tab(
-                  text: "8",
-                ),
               ],
             ),
             backgroundColor: Color.fromRGBO(29, 198, 250, 1),
@@ -58,12 +71,7 @@ class ExerciciosLista extends StatelessWidget {
                   Icons.settings,
                   color: Colors.white,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ExerciciosLista2()));
-                },
+                onPressed: () {},
               )
             ],
           ),
@@ -81,7 +89,7 @@ class ExerciciosLista extends StatelessWidget {
                       width: 100,
                       height: 50,
                       color: Color.fromRGBO(47, 9, 219, 0.868),
-                      child: Text("Counteúdo 1",
+                      child: Text("Conteúdo 1",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 1))),
                     ),
@@ -91,7 +99,7 @@ class ExerciciosLista extends StatelessWidget {
                       width: 100,
                       height: 50,
                       color: Color.fromRGBO(223, 0, 0, 1),
-                      child: Text("Counteúdo 2",
+                      child: Text("Conteúdo 2",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 1))),
                     ),
@@ -101,7 +109,7 @@ class ExerciciosLista extends StatelessWidget {
                       width: 100,
                       height: 50,
                       color: Color.fromRGBO(0, 104, 9, 1),
-                      child: Text("Counteúdo 3",
+                      child: Text("Conteúdo 3",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 255, 255, 1))),
                     ),
@@ -223,9 +231,7 @@ class ExerciciosLista extends StatelessWidget {
                                 _controller.clear();
                                 _controller1.clear();
                                 _controller2.clear();
-                              } else {
-
-                              }
+                              } else {}
                             },
                             child: Text('Enviar'),
                           )),
@@ -233,11 +239,36 @@ class ExerciciosLista extends StatelessWidget {
               ),
 
               // ---------------------------------------------------------------------------------------------------------------------------------------
-              // Exercício 6:
-              // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 7:
-              // ---------------------------------------------------------------------------------------------------------------------------------------
-              // Exercício 8:
+              Container(
+                alignment: Alignment.center,
+                child: Card(
+                  elevation: 20,
+                  color: Colors.orangeAccent,
+                  child: Padding(
+                    padding: const EdgeInsets.all(25.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Container(
+                            padding: EdgeInsets.all(25.0),
+                            color: Colors.white,
+                            child: Image.asset(
+                              "assets/exer2/box.png",
+                            ),
+                            width: 150,
+                            height: 150),
+                        const SizedBox(height: 8),
+                        const Text('Produto 1'),
+                        TextButton(
+                          child: const Text('Comprar'),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 10:
             ],
@@ -247,4 +278,3 @@ class ExerciciosLista extends StatelessWidget {
     );
   }
 }
-

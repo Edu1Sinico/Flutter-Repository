@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'dart:math';
@@ -20,6 +22,7 @@ class ExercicioLista extends StatefulWidget {
 class _ExercicioListaState extends State<ExercicioLista> {
   double _width = 200;
   double _height = 200;
+  Color? _color = Colors.lightBlue[200];
   bool _verify = false;
 
   void _updateState() {
@@ -28,10 +31,12 @@ class _ExercicioListaState extends State<ExercicioLista> {
         _width = 400;
         _height = 400;
         _verify = true;
+        _color = Color.fromARGB(255, 223, 99, 11);
       } else {
         _width = 200;
         _height = 200;
         _verify = false;
+        _color = Colors.lightBlue[200];
       }
     });
   }
@@ -304,16 +309,15 @@ class _ExercicioListaState extends State<ExercicioLista> {
                       duration: Duration(milliseconds: 400),
                       width: _width,
                       height: _height,
-                      color: Colors.lightBlue[200],
+                      color: _color,
                       child: Center(
-                        child: Text(' Animação'),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            _updateState();
+                          },
+                          child: Text('Animar'),
+                        ),
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        _updateState();
-                      },
-                      child: Text('Animar'),
                     ),
                   ],
                 ),

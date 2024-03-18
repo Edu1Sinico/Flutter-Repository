@@ -48,7 +48,9 @@ class ExercicioLista2 extends StatelessWidget {
                 Icons.settings,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                
+              },
             )
           ],
         ),

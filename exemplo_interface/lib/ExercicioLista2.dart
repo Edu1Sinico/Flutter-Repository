@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:flutter/material.dart';
 
 import 'package:exemplo_interface/ExercicioLista1.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,65 @@ void main() {
   runApp(ExercicioLista2());
 }
 
-class ExercicioLista2 extends StatelessWidget {
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          body: Row(
+        children: [
+          Column(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset("assets/exer2/nike.png",
+                    width: 150, height: 150),
+              ),
+            ],
+          ),
+        ],
+      )),
+    );
+  }
+}
+
+class Produtos extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              child: ListTile(
+                title: Text('Produto ${index + 1}'),
+                subtitle: Text('Descrição do Produto ${index + 1}'),
+                leading: Icon(Icons.shopping_bag),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () {},
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class Pesquisar extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return MaterialApp();
+  }
+}
+
+class ExercicioLista2 extends StatefulWidget {
+  @override
+  _ExercicioLista2State createState() => _ExercicioLista2State();
+}
+
+class _ExercicioLista2State extends State<ExercicioLista2> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +75,11 @@ class ExercicioLista2 extends StatelessWidget {
           child: ListView(
             children: [
               ListTile(
-                title: Text('Menu', style: TextStyle(fontSize: (25.0), color: Colors.deepOrangeAccent, fontWeight: FontWeight.bold)),
+                title: Text('Menu',
+                    style: TextStyle(
+                        fontSize: (25.0),
+                        color: Colors.deepOrangeAccent,
+                        fontWeight: FontWeight.bold)),
               ),
               ListTile(
                 title: Text('Lista de exercícios 1'),
@@ -33,7 +96,7 @@ class ExercicioLista2 extends StatelessWidget {
           ),
         ),
         appBar: AppBar(
-          title: Text("My App", style: TextStyle(color: Colors.white)),
+          title: Text("Nike", style: TextStyle(color: Colors.white)),
           backgroundColor: Colors.deepOrange,
           actions: <Widget>[
             IconButton(
@@ -48,25 +111,38 @@ class ExercicioLista2 extends StatelessWidget {
                 Icons.settings,
                 color: Colors.white,
               ),
-              onPressed: () {
-                
-              },
+              onPressed: () {},
             )
           ],
         ),
-
-        body: Container(
-          child: Row(
-            children: [
-              Column(
-                
-              ),
-              Column(
-
-              ),
-            ],
-            
-          ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: [
+            Home(), // Your Home Screen widget
+            Produtos(), // Your Produtos Screen widget
+            Pesquisar(), // Your Pesquisar Screen widget
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          fixedColor: const Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: Colors.deepOrange,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Produtos',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Pesquisar',
+            ),
+          ],
+          currentIndex: _selectedIndex, // Set the current index
+          onTap: (int index) =>
+              setState(() => _selectedIndex = index), // Update on tap
         ),
       ),
     );

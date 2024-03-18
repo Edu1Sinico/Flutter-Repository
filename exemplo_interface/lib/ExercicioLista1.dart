@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'package:flutter/material.dart';
 
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'ExercicioLista2.dart';
@@ -10,7 +12,30 @@ void main() {
   runApp(ExercicioLista());
 }
 
-class ExercicioLista extends StatelessWidget {
+class ExercicioLista extends StatefulWidget {
+  @override
+  _ExercicioListaState createState() => _ExercicioListaState();
+}
+
+class _ExercicioListaState extends State<ExercicioLista> {
+  double _width = 200;
+  double _height = 200;
+  bool _verify = false;
+
+  void _updateState() {
+    setState(() {
+      if (_verify == false) {
+        _width = 400;
+        _height = 400;
+        _verify = true;
+      } else {
+        _width = 200;
+        _height = 200;
+        _verify = false;
+      }
+    });
+  }
+
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
   final TextEditingController _controller2 = TextEditingController();
@@ -271,6 +296,28 @@ class ExercicioLista extends StatelessWidget {
               ),
               // ---------------------------------------------------------------------------------------------------------------------------------------
               // Exercício 10:
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    AnimatedContainer(
+                      duration: Duration(milliseconds: 400),
+                      width: _width,
+                      height: _height,
+                      color: Colors.lightBlue[200],
+                      child: Center(
+                        child: Text(' Animação'),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _updateState();
+                      },
+                      child: Text('Animar'),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

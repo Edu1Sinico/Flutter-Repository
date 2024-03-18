@@ -57,7 +57,7 @@ class ExercicioLista2 extends StatelessWidget {
           child: Row(
             children: [
               Column(
-                color
+                
               ),
               Column(
 

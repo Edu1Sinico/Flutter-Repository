@@ -13,19 +13,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: Row(
-        children: [
-          Column(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                child: Image.asset("assets/exer2/nike.png",
-                    width: 150, height: 150),
-              ),
-            ],
+        body: Align(
+          alignment: Alignment.center,
+          child: Container(
+            alignment: Alignment.center,
+            child: Image.asset("assets/exer2/lista2/nike.png"),
           ),
-        ],
-      )),
+        ),
+      ),
     );
   }
 }
@@ -34,19 +29,25 @@ class Produtos extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: ListTile(
-                title: Text('Produto ${index + 1}'),
-                subtitle: Text('Descrição do Produto ${index + 1}'),
-                leading: Icon(Icons.shopping_bag),
-                trailing: Icon(Icons.arrow_forward),
-                onTap: () {},
-              ),
-            );
-          },
+        body: Align(
+          alignment: Alignment.center,
+          child: Container(
+            width: 425,
+            child: ListView.builder(
+              itemCount: 15,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: ListTile(
+                    title: Text('Produto ${index + 1}'),
+                    subtitle: Text('Descrição do Produto ${index + 1}'),
+                    leading: Icon(Icons.shopping_bag),
+                    trailing: Icon(Icons.arrow_forward),
+                    onTap: () {},
+                  ),
+                );
+              },
+            ),
+          ),
         ),
       ),
     );
@@ -55,7 +56,21 @@ class Produtos extends StatelessWidget {
 
 class Pesquisar extends StatelessWidget {
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 400,
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Barra de Pesquisa',
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

@@ -29,6 +29,15 @@ class Produtos extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: TextField(
+            textAlign: TextAlign.center,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Barra de Pesquisa',
+            ),
+          ),
+        ),
         body: Align(
           alignment: Alignment.center,
           child: Container(

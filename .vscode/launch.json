@@ -1,0 +1,208 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app_shopping_list",
+            "cwd": "app_shopping_list",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app_shopping_list (profile mode)",
+            "cwd": "app_shopping_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_shopping_list (release mode)",
+            "cwd": "app_shopping_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "app_todo_list",
+            "cwd": "app_todo_list",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app_todo_list (profile mode)",
+            "cwd": "app_todo_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_todo_list (release mode)",
+            "cwd": "app_todo_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "calculadora_flutter",
+            "cwd": "calculadora_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "calculadora_flutter (profile mode)",
+            "cwd": "calculadora_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "calculadora_flutter (release mode)",
+            "cwd": "calculadora_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "calculadora_flutter_corrigido",
+            "cwd": "calculadora_flutter_corrigido",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "calculadora_flutter_corrigido (profile mode)",
+            "cwd": "calculadora_flutter_corrigido",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "calculadora_flutter_corrigido (release mode)",
+            "cwd": "calculadora_flutter_corrigido",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "estudos_variaveis_operadores",
+            "cwd": "estudos_variaveis_operadores",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "estudos_variaveis_operadores (profile mode)",
+            "cwd": "estudos_variaveis_operadores",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "estudos_variaveis_operadores (release mode)",
+            "cwd": "estudos_variaveis_operadores",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "exemplo_interface",
+            "cwd": "exemplo_interface",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "exemplo_interface (profile mode)",
+            "cwd": "exemplo_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "exemplo_interface (release mode)",
+            "cwd": "exemplo_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_application_1",
+            "cwd": "flutter_application_1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_application_1 (profile mode)",
+            "cwd": "flutter_application_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_application_1 (release mode)",
+            "cwd": "flutter_application_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "jogo_de_adivinhacao",
+            "cwd": "jogo_de_adivinhacao",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "jogo_de_adivinhacao (profile mode)",
+            "cwd": "jogo_de_adivinhacao",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "jogo_de_adivinhacao (release mode)",
+            "cwd": "jogo_de_adivinhacao",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "meu_primeiro_flutter",
+            "cwd": "meu_primeiro_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "meu_primeiro_flutter (profile mode)",
+            "cwd": "meu_primeiro_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "meu_primeiro_flutter (release mode)",
+            "cwd": "meu_primeiro_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "ola_mundo_flutter",
+            "cwd": "ola_mundo_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ola_mundo_flutter (profile mode)",
+            "cwd": "ola_mundo_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ola_mundo_flutter (release mode)",
+            "cwd": "ola_mundo_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

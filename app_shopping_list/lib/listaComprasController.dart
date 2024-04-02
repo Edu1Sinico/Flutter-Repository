@@ -40,6 +40,7 @@ class ListaComprasController extends ChangeNotifier {
   void atualizarCompra(int indice, String descricao){
     if (indice >= 0 && indice < _compras.length) {
       _compras.add(Compras(descricao.trim(), _compras[indice].concluida));
+      notifyListeners();
     }
   }
 

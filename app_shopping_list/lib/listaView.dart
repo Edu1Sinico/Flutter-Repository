@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 class ListaComprasScreen extends StatelessWidget {
   // Controlador para o campo de texto de nova tarefa
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class ListaComprasScreen extends StatelessWidget {
                   onPressed: () {
                     // Chamando o método adicionarTarefa do Provider para atualizar o estado
                     Provider.of<ListaComprasController>(context, listen: false)
-                        .adicionarCompra(_controller.text);
+                        .adicionarCompra(_controller2.text);
                     // Limpar o campo de texto após adicionar a tarefa
-                    _controller.clear();
+                    _controller2.clear();
                   },
                   icon: Icon(Icons.add),
                 ),
@@ -64,10 +64,14 @@ class ListaComprasScreen extends StatelessWidget {
                       leading: IconButton(
                         icon: Icon(Icons.edit),
                         onPressed: () {
+                          TextEditingController _editController =
+                              TextEditingController();
+                          _editController.text = model.compras[index].descricao;
+
                           AlertDialog alert = AlertDialog(
                             title: Text("Atualizar Lista"),
                             content: TextField(
-                              controller: _controller,
+                              controller: _editController,
                               decoration: InputDecoration(
                                 labelText: 'Atualizar Lista de Compras',
                               ),
@@ -77,7 +81,7 @@ class ListaComprasScreen extends StatelessWidget {
                                 child: Text("OK"),
                                 onPressed: () {
                                   model.atualizarCompra(
-                                      index, _controller.text);
+                                      index, _editController.text);
                                   Navigator.of(context).pop();
                                 },
                               ),

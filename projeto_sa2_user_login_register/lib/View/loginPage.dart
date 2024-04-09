@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sa2_user_login_register/Controller/connection.dart';
-import 'package:projeto_sa2_user_login_register/View/ConfPage.dart';
+import 'package:projeto_sa2_user_login_register/View/HomePage.dart';
 import 'package:projeto_sa2_user_login_register/View/registerPage.dart';
 
 class LoginPage extends StatefulWidget {

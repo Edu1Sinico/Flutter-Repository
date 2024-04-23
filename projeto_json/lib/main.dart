@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:projeto_json/View/HomeView.dart';
 
 void main() {
   runApp(const MyApp());

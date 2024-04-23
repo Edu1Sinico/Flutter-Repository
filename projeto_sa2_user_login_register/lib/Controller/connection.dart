@@ -2,6 +2,7 @@
 
 import 'package:path/path.dart';
 import 'package:projeto_sa2_user_login_register/Model/modelUser.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 

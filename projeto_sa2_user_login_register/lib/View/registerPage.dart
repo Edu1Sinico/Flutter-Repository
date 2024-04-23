@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sa2_user_login_register/Controller/connection.dart';
 import 'package:projeto_sa2_user_login_register/Model/modelUser.dart';
+import 'package:projeto_sa2_user_login_register/View/loginPage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -76,10 +77,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Usuário cadastrado com sucesso!'),
-                        
                       ),
                     );
-                    
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+
                     // Consider navigating to Login or Home based on your app logic
                   },
                   child: const Text('Criar conta'),

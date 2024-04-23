@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sa2_user_login_register/Controller/connection.dart';
+import 'package:projeto_sa2_user_login_register/View/ConfPage.dart';
 import 'package:projeto_sa2_user_login_register/View/registerPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,7 +13,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
+  final dbHelper = DatabaseHelper();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // TODO: Implementar login
+                    _handleLogin();
                   },
                   child: const Text('Login'),
                 ),
@@ -57,5 +60,26 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+Future<void> _handleLogin() async {
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+
+    // Fetch user from database
+    final user = await dbHelper.getUserByUsername(username);
+
+    if (user != null && user.password == password) {
+      // Login successful, navigate to ConfPage
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } else {
+      // Login failed, show error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Usuário ou senha incorretos')),
+      );
+    }
   }
 }

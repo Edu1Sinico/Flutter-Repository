@@ -1,14 +1,22 @@
 class modelUser {
-  int id;
+  int ? id;
   String name;
   String email;
-  String senha;
+  String password;
 
   modelUser({
-    required this.id,
+    this.id,
     required this.name,
     required this.email,
-    required this.senha,
+    required this.password,
   });
-  
+
+  factory modelUser.fromMap(Map<String, dynamic> map) {
+    return modelUser(
+      id: map['id'],
+      name: map['name'],
+      email: map['email'],
+      password: map['password'],
+    );
+  }
 }

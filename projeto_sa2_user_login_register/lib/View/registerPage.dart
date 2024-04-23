@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sa2_user_login_register/Controller/connection.dart';
+import 'package:projeto_sa2_user_login_register/Model/modelUser.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -11,6 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final dbHelper = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +46,41 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    // TODO: Implementar cadastro
+                  onPressed: () async {
+                    // Validate user input (optional)
+                    if (_usernameController.text.isEmpty ||
+                        _emailController.text.isEmpty ||
+                        _passwordController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Por favor, preencha todos os campos'),
+                        ),
+                      );
+                      return;
+                    }
+
+                    // Create new user object
+                    final newUser = modelUser(
+                      name: _usernameController.text,
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                    );
+
+                    // Call create method to save user in database
+                    await dbHelper.create(newUser);
+
+                    List<modelUser> listaUsers = await dbHelper.getUsers();
+                    print(listaUsers);
+
+                    // Show success message and potentially navigate to Login/Home
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Usuário cadastrado com sucesso!'),
+                        
+                      ),
+                    );
+                    
+                    // Consider navigating to Login or Home based on your app logic
                   },
                   child: const Text('Criar conta'),
                 ),

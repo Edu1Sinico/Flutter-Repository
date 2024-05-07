@@ -226,6 +226,7 @@ class _CadastrarLivroScreenState extends State<CadastrarLivroScreen> {
       categoria: _categoriaController.text.split(','),
     );
     _controller.addLivro(livro);
+    _controller.salvarJson();
     _cleanController();
     //snackbar
     ScaffoldMessenger.of(context).showSnackBar(

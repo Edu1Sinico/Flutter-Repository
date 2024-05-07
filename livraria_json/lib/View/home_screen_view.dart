@@ -15,7 +15,6 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                   onPressed: () {

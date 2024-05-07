@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
         '/cadastro': (context) => const CadastrarLivroScreen(),
         '/listar':(context) => const ListarLivrosScreen(),
       },
-
     );
   }
 }

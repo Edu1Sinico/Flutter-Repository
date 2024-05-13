@@ -27,7 +27,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
     super.initState();
-    _fetchWeatherData('São Paulo');
+    _weatherData = new Map<String, dynamic>();
+    // _fetchWeatherData('São Paulo');
   }
 
   // Método assíncrono para buscar os dados de previsão do tempo para uma cidade específica.
@@ -52,7 +53,44 @@ class _WeatherScreenState extends State<WeatherScreen> {
         title: Text('Previsão do Tempo'),
         backgroundColor: Colors.amber,
       ),
-      body: _weatherData == null
+
+      // -------------------- Correção do Professor --------------------
+      // body: FutureBuilder(
+      //   future: _fetchWeatherData('São Paulo'),
+      //   builder: ((context, snapshot) {
+      //     if (_weatherData.isEmpty) {
+      //       return const Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     } else {
+      //       return Center(
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             TextFormField(
+      //               controller: _cidadeController,
+      //               decoration: InputDecoration(
+                    
+      //               )
+      //               // validator: (value) {
+
+      //               // },
+      //             ),
+      //             Text(
+      //                 'City: ${_weatherData['name']}'), // Exibe o nome da cidade.
+      //             Text(
+      //                 'Temperature: ${(_weatherData['main']['temp'] - 273).toStringAsFixed(2)} °C'), // Exibe a temperatura em graus Celsius.
+      //             Text(
+      //                 'Description: ${_weatherData['weather'][0]['description']}'), // Exibe a descrição do clima.
+      //           ],
+      //         ),
+      //       );
+      //     }
+      //   }),
+      // ),
+
+      // -------------------- O que eu fiz --------------------
+       body: _weatherData == null
           ? Center(
               child: CircularProgressIndicator(),
             )
@@ -70,7 +108,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ),
                   ),
                   SizedBox(height: 15,),
-                  TextButton(onPressed: 
+                  TextButton(onPressed:
                   () {
                     if(_cidadeController != null){
                     _fetchWeatherData(_cidadeController.text);
@@ -78,13 +116,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     else{
                       _fetchWeatherData('São Paulo');
                     }
-                  }, 
+                  },
                   child: Text("Clicar")),
                   SizedBox(height: 15,),
                   Text(
                       'City: ${_weatherData['name']}'), // Exibe o nome da cidade.
                   Text(
-                      'Temperature: ${_weatherData['main']['temp'] - 273} °C'), // Exibe a temperatura em graus Celsius.
+                      'Temperature: ${(_weatherData['main']['temp'] - 273).toStringAsFixed(2)} °C'), // Exibe a temperatura em graus Celsius.
                   Text(
                       'Description: ${_weatherData['weather'][0]['description']}'), // Exibe a descrição do clima.
                 ],

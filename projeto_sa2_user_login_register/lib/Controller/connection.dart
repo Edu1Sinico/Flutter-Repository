@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, depend_on_referenced_packages
+
 import 'package:path/path.dart';
 import 'package:projeto_sa2_user_login_register/Model/modelUser.dart';
 import 'package:shared_preferences/shared_preferences.dart';

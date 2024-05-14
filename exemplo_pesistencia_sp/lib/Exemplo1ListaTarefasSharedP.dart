@@ -62,7 +62,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
         title: Text('Lista de Tarefas'), // Título da barra de aplicativos
       ),
       body: ListView.builder(
-        itemCount: tasks.length, // Número de itens na lista de tarefas
+        itemCount: tasks.length, // Número de iten s na lista de tarefas
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(tasks[index]), // Título do item da lista

@@ -30,4 +30,14 @@ class WeatherController {
       print(e);
     }
   }
+
+  // findCity
+  Future<bool> findCity(String city) async {
+    try {
+      return await _service.findCity(city);
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }

@@ -16,9 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    super.initState();
-    // GeoLocator
     _getWeather();
+    super.initState();
   }
 
   Future<void> _getWeather() async {
@@ -36,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Previsão do Tempo'),
         backgroundColor: Colors.lightBlue,
       ),
@@ -48,40 +48,51 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: () {
-                    Navigator.pushNamed(context, '/Favorites');
-                  }, child: Text("Favorites")),
+                  ElevatedButton(
+                      onPressed: () {
+                        // Navigator.pushNamed(context, '/Favorites');
+                      },
+                      child: Text("Favorites")),
                   SizedBox(width: 20),
-                  ElevatedButton(onPressed: () {
-                    Navigator.pushNamed(context, '/Search');
-                  }, child: Text("Localization")),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Search');
+                      },
+                      child: Text("Localization")),
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              _controller.weatherList.isEmpty
-                  ? Column(children: [
-                      Text("Localização Não Encontrada"),
-                      IconButton(
+              //construir a exibição do clima(geolocalização)
+              Builder(
+                  builder: (context) {
+                    if (_controller.weatherList.isEmpty) {
+                      return Column(children: [
+                        const Text("Location not found"),
+                        IconButton(
+                          icon: const Icon(Icons.refresh),
                           onPressed: () {
                             _getWeather();
                           },
-                          icon: Icon(Icons.refresh))
-                    ])
-                  : Column(
-                      children: [
-                        Text(_controller.weatherList.last.name),
-                        Text(_controller.weatherList.last.main),
-                        Text(_controller.weatherList.last.description),
-                        Text((_controller.weatherList.last.temp - 273)
-                            .toString()),
-                        Text((_controller.weatherList.last.temp_max - 273)
-                            .toString()),
-                        Text((_controller.weatherList.last.temp_min - 273)
-                            .toString()),
-                      ],
-                    ),
+                        )
+                      ]);
+                    } else {
+                      return Column(
+                        children: [
+                          Text(_controller.weatherList.last.name),
+                          Text(_controller.weatherList.last.main),
+                          Text(_controller.weatherList.last.description),
+                          Text((_controller.weatherList.last.temp - 273)
+                              .toStringAsFixed(2)),
+                          Text((_controller.weatherList.last.temp_max - 273)
+                              .toStringAsFixed(2)),
+                          Text((_controller.weatherList.last.temp_min - 273)
+                              .toStringAsFixed(2)),
+                        ],
+                      );
+                    }
+                  }),
             ],
           ),
         ),

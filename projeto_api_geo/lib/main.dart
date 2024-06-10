@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:projeto_api_geo/view/DetailsWeatherPage.dart';
-import 'package:projeto_api_geo/view/FavoritesPage.dart';
 import 'package:projeto_api_geo/view/HomePage.dart';
 import 'package:projeto_api_geo/view/searchPage.dart';
 
@@ -20,9 +18,8 @@ class MyApp extends StatelessWidget {
       // home: HomeScreen(),
       routes: {
         '/': (context) => HomeScreen(),
-        '/Favorites': (context) => FavoritesScreen(),
+        // '/Favorites': (context) => FavoritesScreen(),
         '/Search': (context) => SearchScreen(),
-        'Details': (context) => DetailsScreen(),
       },
     );
   }

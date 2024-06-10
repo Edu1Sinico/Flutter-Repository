@@ -1,14 +1,11 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_final_fields, file_names
-
 import 'package:flutter/material.dart';
-import 'package:sa2_correcao/Controller/BancoDabos.dart';
 import 'package:sa2_correcao/Model/Usuario.dart';
+
+import '../Controller/BancoDados.dart';
 
 class PaginaCadastro extends StatefulWidget {
   @override
-  _PaginaCadastroState createState() {
-    return _PaginaCadastroState();
-  }
+  _PaginaCadastroState createState() => _PaginaCadastroState();
 }
 
 class _PaginaCadastroState extends State<PaginaCadastro> {
@@ -38,7 +35,7 @@ class _PaginaCadastroState extends State<PaginaCadastro> {
     }
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Página de Cadastro"),),

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart'; // Importação da biblioteca Flutter Material
 import 'package:shared_preferences/shared_preferences.dart'; // Importação da biblioteca de preferências compartilhadas
  

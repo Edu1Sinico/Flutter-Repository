@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_final_fields, use_build_context_synchronously, file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sa2_correcao/Controller/BancoDabos.dart';
-import 'package:sa2_correcao/Model/Usuario.dart';
-import 'package:sa2_correcao/View/CadastroPageView.dart';
-import 'package:sa2_correcao/View/HomePage.dart';
+
+import '../Controller/BancoDados.dart';
+import '../Model/Usuario.dart';
+import 'CadastroPageView.dart';
+import 'HomePageView.dart';
 
 class PaginaLogin extends StatefulWidget {
   const PaginaLogin({super.key});
@@ -110,7 +109,7 @@ class _PaginaLoginState extends State<PaginaLogin> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PaginaHome(email: usuario.email),
+              builder: (context) => PaginaHome(email:usuario.email),
             ),
           );
         } else {

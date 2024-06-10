@@ -1,18 +1,11 @@
-// ignore_for_file: file_names
-
 class Usuario {
-  // Atributos
+  //atributos
   late int id;
   String nome;
   String email;
   String senha;
-
-  // Construtor
-  Usuario({
-    required this.nome, 
-    required this.email, 
-    required this.senha, 
-    required id});
+  //Construtor
+  Usuario({required this.nome, required this.email, required this.senha, required id});
 
   Map<String, dynamic> toMap() {
      return {
@@ -30,4 +23,5 @@ class Usuario {
       senha: map['senha'],
     );
   }
+
 }

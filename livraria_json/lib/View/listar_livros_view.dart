@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'dart:io';
 
-import '../Controller/livrosController.dart';
-
 import 'package:flutter/material.dart';
+
+import '../Controller/livrosController.dart';
 
 class ListarLivrosScreen extends StatefulWidget {
   const ListarLivrosScreen({super.key});
@@ -13,34 +12,38 @@ class ListarLivrosScreen extends StatefulWidget {
 }
 
 class _ListarLivrosScreenState extends State<ListarLivrosScreen> {
-  final LivrosController _controller = new LivrosController();
+  final LivrosController _controller = LivrosController();
 
- @override
+  @override
   void initState() {
     super.initState();
-    _controller.ListLivros;
+    _controller.listLivros;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Listar Livros'),
-      ),
-      body: Expanded(
-          child: Padding(
-        padding: EdgeInsets.all(12),
-        child: ListView.builder(
-            itemCount: _controller.ListLivros.length,
-            itemBuilder: (context, index) {
-              ListTile(
-                leading: Image.file(File(_controller.ListLivros[index].capa)),
-                title: Text(_controller.ListLivros[index].titulo,),
-                subtitle: Text(_controller.ListLivros[index].autor),
+        appBar: AppBar(
+          title: const Text('Listar Livros'),
+        ),
+        body: Expanded(
+            child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: //lista livros
+                    ListView.builder(
+                  itemCount: _controller.listLivros.length,
+                  itemBuilder: (context, index) {
+                    ListTile(
+                      leading:
+                          Image.file(File(_controller.listLivros[index].capa)),
+                      title: Text(_controller.listLivros[index].titulo),
+                      subtitle: Text(_controller.listLivros[index].autor),
                     );
                     return null;
-                  },),
-      )),
-    );
+                  },
+              )
+            )
+          )
+        );
   }
 }

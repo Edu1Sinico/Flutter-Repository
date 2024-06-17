@@ -12,7 +12,7 @@ class WeatherServices {
   // métodos
   Future<Map<String, dynamic>> getWeather(String city) async {
     // Constrói a URL completa para fazer a solicitação à API de previsão do tempo.
-    final url = Uri.parse('$baseUrl/weather?q=$city&appid=$apiKey');
+    final url = Uri.parse('$baseUrl?q=$city&appid=$apiKey');
 
     // Faz uma solicitação GET para a URL construída e aguarda a resposta.
     final response = await http.get(url);

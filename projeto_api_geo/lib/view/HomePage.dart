@@ -65,34 +65,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               //construir a exibição do clima(geolocalização)
-              Builder(
-                  builder: (context) {
-                    if (_controller.weatherList.isEmpty) {
-                      return Column(children: [
-                        const Text("Location not found"),
-                        IconButton(
-                          icon: const Icon(Icons.refresh),
-                          onPressed: () {
-                            _getWeather();
-                          },
-                        )
-                      ]);
-                    } else {
-                      return Column(
-                        children: [
-                          Text(_controller.weatherList.last.name),
-                          Text(_controller.weatherList.last.main),
-                          Text(_controller.weatherList.last.description),
-                          Text((_controller.weatherList.last.temp - 273)
-                              .toStringAsFixed(2)),
-                          Text((_controller.weatherList.last.temp_max - 273)
-                              .toStringAsFixed(2)),
-                          Text((_controller.weatherList.last.temp_min - 273)
-                              .toStringAsFixed(2)),
-                        ],
-                      );
-                    }
-                  }),
+              Builder(builder: (context) {
+                if (_controller.weatherList.isEmpty) {
+                  return Column(children: [
+                    const Text("Location not found"),
+                    IconButton(
+                      icon: const Icon(Icons.refresh),
+                      onPressed: () {
+                        _getWeather();
+                      },
+                    )
+                  ]);
+                } else {
+                  return Column(
+                    children: [
+                      Text(_controller.weatherList.last.name),
+                      Text(_controller.weatherList.last.main),
+                      Text(_controller.weatherList.last.description),
+                      Text((_controller.weatherList.last.temp - 273)
+                          .toStringAsFixed(2)),
+                      Text((_controller.weatherList.last.temp_max - 273)
+                          .toStringAsFixed(2)),
+                      Text((_controller.weatherList.last.temp_min - 273)
+                          .toStringAsFixed(2)),
+                    ],
+                  );
+                }
+              }),
             ],
           ),
         ),
